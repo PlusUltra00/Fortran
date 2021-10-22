@@ -7,19 +7,19 @@ program ex7_3
     integer, parameter :: out = 100
     double precision x, y
     
-    open(8, file='input7_3.txt', action='read')
+    open(10, file='input7_3.txt', action='read')
     do k = 1, n
-        read(8, *) xp(k), yp(k)
+        read(10, *) xp(k), yp(k)
     end do
-    close(8)
+    close(10)
     
-    open(8, file='output7_3.csv', status='replace')
+    open(20, file='output7_3.csv', status='replace')
     do k = 0, out
         x = xp(1) + k * (xp(n) - xp(1)) / dble(out)
         y = lagrange(x)
-        write(8, *) x, ',', y
+        write(20, *) x, ',', y
     end do
-    close(8)
+    close(20)
     
 contains
 
