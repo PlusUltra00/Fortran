@@ -9,16 +9,16 @@ program gauss
     integer ip
     double precision:: eps = 1.0d-14
     
-    open(10, file='input.dat',action='read')
-    read(10,*) n
+    open(10, file = 'input.dat', action = 'read')
+    read(10, *) n
     do i = 1, n
-        read(10,*) (a(i, j), j = 1, n)
-        write(*,*) (a(i, j), j = 1, n)
+        read(10, *) (a(i, j), j = 1, n)
+        write(*, *) (a(i, j), j = 1, n)
     end do
     
     do i = 1, n
-    read(10,*) b(i)
-    write(*,*) b(i)
+    read(10, *) b(i)
+    write(*, *) b(i)
     end do
     
     close(10)
@@ -64,12 +64,12 @@ program gauss
     
     open(20, file = 'output.dat', action = 'write')
     
-    write(*,*) "Ax=bの解xは以下の通りです．"
-    write(20,*) "Ax=bの解xは以下の通りです．"
+    write(*, *) "Ax=bの解xは以下の通りです．"
+    write(20, *) "Ax=bの解xは以下の通りです．"
     
     do i = 1, n
-        write(*,'(F12.4)') x(i)
-        write(20,'(F12.4)') x(i)
+        write(*, '(F12.4)') x(i)
+        write(20, '(F12.4)') x(i)
     end do
     
     close(20)

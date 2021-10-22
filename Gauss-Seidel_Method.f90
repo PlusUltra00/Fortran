@@ -8,17 +8,17 @@ program GaussSeidel
     double precision :: eps = 1.0d-8
     integer :: kmax = 1000
     
-    open(10, file='input.dat',action='read')
-    read(10,*) n
-    
+    open(10, file = 'input.dat', action = 'read')
+    read(10, *) n
+
     do i = 1, n
-        read(10,*) (a(i, j), j = 1, n)
-        write(*,*) (a(i, j), j = 1, n)
+        read(10, *) (a(i, j), j = 1, n)
+        write(*, *) (a(i, j), j = 1, n)
     end do
     
     do i = 1, n
-        read(10,*) b(i)
-        write(*,*) b(i)
+        read(10, *) b(i)
+        write(*, *) b(i)
         x_1(i) = 1.0d0
     end do
     
@@ -47,17 +47,17 @@ program GaussSeidel
     open(20, file = 'output.dat', action = 'write')
     
     if(k >= kmax) then
-        write(*,*) "解が収束しませんでした"
-        write(20,*) "解が収束しませんでした"
+        write(*, *) "解が収束しませんでした"
+        write(20, *) "解が収束しませんでした"
     else
-        write(*,*) "Ax=bの解は以下の通りです"
-        write(20,*) "Ax=bの解は以下の通りです"
+        write(*, *) "Ax=bの解は以下の通りです"
+        write(20, *) "Ax=bの解は以下の通りです"
         do i = 1, n
-            write(*,'(F12.4)') x(i)
-            write(20,'(F12.4)') x(i)
+            write(*, '(F12.4)') x(i)
+            write(20, '(F12.4)') x(i)
         end do
-        write(*,*) "なお反復回数k=", k
-        write(20,*) "なお反復回数k=", k
+        write(*, *) "なお反復回数k=", k
+        write(20, *) "なお反復回数k=", k
     end if
     
     close(20)

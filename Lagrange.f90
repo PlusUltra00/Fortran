@@ -7,13 +7,13 @@ program ex7_3
     integer, parameter :: out = 100
     double precision x, y
     
-    open(10, file='input7_3.txt', action='read')
+    open(10, file = 'input7_3.txt', action = 'read')
     do k = 1, n
         read(10, *) xp(k), yp(k)
     end do
     close(10)
     
-    open(20, file='output7_3.csv', status='replace')
+    open(20, file = 'output7_3.csv', status = 'replace')
     do k = 0, out
         x = xp(1) + k * (xp(n) - xp(1)) / dble(out)
         y = lagrange(x)
@@ -38,7 +38,7 @@ function lagrange(xin)
     
         do jn = 1, n
             if(in /= jn) then
-                L = L * (xin - xp(jn))/(xp(in) - xp(jn))
+                L = L * (xin - xp(jn)) / (xp(in) - xp(jn))
             end if
         end do
     
