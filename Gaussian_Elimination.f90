@@ -2,12 +2,13 @@ program gauss
     implicit none
 
     integer i, j, k, n
-    double precision a(100, 100)
+    double precision, allocatable :: a(:, :)
     double precision b(100), x(100)
     double precision tmp
     double precision amax
     integer ip
     double precision:: eps = 1.0d-14
+    allocate(a(100, 100))
     
     open(10, file = 'input.dat', action = 'read')
     read(10, *) n
