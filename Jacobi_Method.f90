@@ -2,7 +2,7 @@ program jacobi
     implicit none
     
     integer i, j, k, n
-    double precision a(100, 100)
+    double precision, ALLOCATABLE :: a(n, n)
     double precision b(100), x(100)
     
     double precision x_1(100)
