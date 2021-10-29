@@ -2,13 +2,13 @@ program jacobi
     implicit none
     
     integer i, j, k, n
-    double precision, ALLOCATABLE :: a(n, n)
+    double precision, allocatable :: a(:, :)
     double precision b(100), x(100)
-    
     double precision x_1(100)
     double precision dr
     double precision :: eps = 1.0d-8
     integer :: kmax = 1000
+    allocate(a(100, 100))
     
     open(10, file = 'input.dat', action = 'read')
     read(10, *) n
